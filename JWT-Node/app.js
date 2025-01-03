@@ -1,5 +1,6 @@
 const express = require('express');
 const signupRoute = require("./routes/signup");
+const loginRoute = require("./routes/login");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
@@ -11,8 +12,8 @@ app.use(cors());
 
 createAdminAccount();
 
-
 app.use("/user", signupRoute);
+app.use("/auth", loginRoute);
 
 
 app.listen(PORT, () => {
