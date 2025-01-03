@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import {Button, Form} from "react-bootstrap";
 import "./Signup.css";
+import {useNavigate} from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const[formData, setFormData] = useState({
       email: '',
       name: '',
@@ -19,9 +21,26 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log("email: ", formData.email)
-      console.log("name: ", formData.name)
-      console.log("password: ", formData.password)
+      try {
+        const response = await fetch("http://localhost:5000/user/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+        console.log(result);
+        navigate("/login");
+      } catch (error) {
+          console.error(error.message)
+      } finally {
+          setFormData({
+              email: "",
+              name: "",
+              password: ""
+          })
+      }
   }
   return (
     <div className='center-form'>
