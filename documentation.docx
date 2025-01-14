@@ -1,0 +1,63 @@
+Basic Informations:
+    1. Profile Informations
+        - Name, Carrier, Contact (Email, Phone)
+        - Photos and Self-Introduction
+    
+    2. Education Informations:
+        - School name, Major, Time phrase
+        - Study Experience and main courses
+    
+    3. Work Experience:
+        - Company name, Position, Time phrase
+        - Work content description, main contributions or projects
+
+    4. Skills:
+        - Technical Know-Hows (programm languages, frameworks and tools)
+        - Languages skills (like English or German)
+    
+    5. Projects Experience:
+        - Project name and time phrase
+        - Project introduction, relevant technologies and personal contributions
+    
+Extension Functionalities:
+    1. Responsive design:
+        - be able to display both in PC and mobile terminal with good effects
+    2. Download functionality:
+        - provide PDF CV download button for the HRs
+    3. Dynamic skill visualization:
+        - Use graphic to display the proficiency of skills
+    4. online contact form:
+        - The form can be filled in and sent to your email box
+    5. Support multi-Languages:
+        - Provide chinese, english and german or some other languages
+    6. Timeline display:
+        - Provide timeline display for work and education Experience
+    7. SEO Optimization:
+        - Use suitable meta labels for possible search engine
+
+Advanced Functionalities:
+    1. Blog or Status dynamic update
+        - share personla learn experience, skill notes or else
+    2. Visitors statistics:
+        - record the quantity of visitors and data
+    3. Personal theme swtich:
+        - support that the users change the color of theme or self defined role
+    4. Skill test programm
+        - add a interactive functionality, for example a simple code test task to show your skill ability
+    5. Recommendation or certification display:
+        - Online display of Recommendation and certification scann- or PDF-file
+
+Technical suggest:
+    1. Backend (Node.js)
+        - Use Express.js for API requests
+        - Use MongoDB or MySQL for the storage of Resume
+        - Configurate JWT to realize Administration control(like the right of editting resume content)
+
+    2. Frontend (Angular)
+        - Use Angular Bootstrap for the UI layout
+        - Use Angular Router for the swtich between pages(egg. Home, Resume/CV, Projects, Blog etc.)
+
+    3. Deploy
+        1. Seperate deloyement for frontend and Backend
+        2. Deploy frontend with Vercel or Netify
+        3. Deploy backend with Render or Heroku      

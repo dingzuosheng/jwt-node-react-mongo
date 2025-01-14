@@ -1,0 +1,74 @@
+Basic Functionalities Design:
+    1. User information management:
+        # GET /api/user/profile: Get personal information(like name, self-intro and contacts)
+        # PUT /api/user/profile: Update personal information (Authorization verification required)
+
+    2. Education background management:
+        # GET /api/education: Retrieve educational information list
+        # POST /api/education: Add new education education
+        # PUT /api/education/:id: Edit specified education 
+        # DELETE /api/education/:id: Delete specified education
+    
+    3. Work experience management:
+        # GET /api/work: Retrieve work experience list
+        # POST /api/work: Add new work experience
+        # PUT /api/work/:id: Update specified work experience
+        # DELETE /api/work/:id: Delete specified work experience
+    
+    4. Skills management:
+        # GET /api/skills: Retrieve skill list
+        # POST /api/skills: Add new skill
+        # PUT /api/skills/:id: Update specified skill
+        # DELETE /api/skills/:id: Delete specified skill
+
+    5. Projects Experience management:
+        # GET /api/projects: Retrieve projects list
+        # POST /api/projects: Add new projects
+        # PUT /api/projects/:id: Update specified projects
+        # DELETE /api/projects/:id: Delete specified projects
+
+
+Advanced Functionalities
+    1. PDF download Service:
+        - GET /api/resume/pdf: Generate and returns a Resume in PDF
+            - Tools: generate dynamic PDF Resume with puppeteer or pdfkit  
+    2. Contact form service
+        - POST /api/contact: Submit the contact form and send the message to the administrator's email.
+            - Tools: Combine with nodemailer to implement email notifications.
+    3. Multi-language support:
+        - GET /api/translations/:lang: Get the copy in the specified language (such as Chinese, English).
+    4. User statistics
+        - GET /api/analytics: Get website visit statistics.
+        - POST /api/analytics: Record user access behavior.
+            Tools: Can be stored in a database or combined with Google Analytics.
+    5. File upload service
+        - POST /api/uploads: Upload recommendation letters or certificate files.
+        - GET /api/uploads/:fileId: Get the uploaded file.
+
+Functionalities Management:
+    1. Administrator verification
+        - POST /api/auth/login: Administrator logs in and returns JWT Token.
+        - POST /api/auth/logout: The administrator logs out and destroys the session.
+    2. Permission control
+        - In all modification operations (such as POST/PUT/DELETE), verify whether the JWT Token is valid through middleware to ensure that only administrators can modify the data.
+    3. Backend management interface
+        - GET /api/dashboard/overview: Get overview data of resume management (such as total number of projects, number of visitors, etc.).
+        - GET /api/dashboard/recent-contacts: View recently submitted contact form information.
+
+Deploy related services
+    1. health check:
+        - GET /api/health: Returns server status (such as connected database, version information, etc.).
+    2. Static resource management:
+        - Provide static resources such as files and images uploaded by users:
+            - GET /uploads/:filename: access static files.
+    3. logging:
+        - Integrate logging middleware (such as morgan) to log every API request for easy debugging.
+
+Backend technology stack recommendations:
+    1. Framework: Express.js (lightweight) or NestJS (structured development).
+    2. database:
+        - Relational: MySQL, PostgreSQL (suitable for structured data).
+        - Non-relational: MongoDB (more flexibility).
+    3. Authentication: JWT (for admin authentication).
+    4. File storage: cloud storage (such as AWS S3) or local storage.
+    5. Deployment tools: Docker, Heroku, Vercel, Render.
